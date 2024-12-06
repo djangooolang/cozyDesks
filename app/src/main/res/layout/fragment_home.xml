@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_marginTop="10dp"
+        app:layout_anchor="@+id/toolbar"
+        app:layout_anchorGravity="center">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#EBE5EF"
+            app:shapeAppearanceOverlay="@style/roundImage"
+            />
+
+        <TextView
+            android:id="@+id/textView"
+            android:paddingLeft="9dp"
+            android:autoSizeMinTextSize="9dp"
+            android:autoSizeMaxTextSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Уютные\nНастолки"
+            android:textSize="25dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_marginStart="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:inputType="none"
+                android:text="Москва"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/img1"
+        app:shapeAppearanceOverlay="@style/roundImage2"
+
+        />
+
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hello"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="130dp"
+        android:layout_marginHorizontal="30dp"
+        />
+
+    <com.google.android.material.search.SearchView
+        android:id="@+id/search_View"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Hint"
+        app:layout_anchor="@id/search_bar">
+
+    </com.google.android.material.search.SearchView>
+    <Button
+        android:id="@+id/startTestButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Пройти Тест"
+        android:textColor="@color/black"
+        android:layout_gravity="bottom |center_horizontal"
+        android:layout_marginBottom="70dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Узнавай свой уровень, и подбери\n подходящую игру и найди\n единомышленников"
+        android:layout_gravity="center_horizontal | bottom"
+        android:layout_marginBottom="22dp"
+        android:textSize="12dp"
+        />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

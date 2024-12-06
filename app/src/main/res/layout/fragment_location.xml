@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Location">
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Список Лофтов,\nдля проведения игр:"
+        android:textSize="30dp"
+
+        />
+    <ScrollView
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#E3E3E3">
+                <TextView
+                    android:id="@+id/MKS"
+
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='"МКС плейс лофт"'
+                    android:textSize="20dp"/>
+                <TextView
+                    android:contentDescription="Оценки Ловтов"
+                    android:layout_gravity="end"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='5.0 285 оценок'
+                    android:textSize="15dp"/>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#E3E3E3">
+                <TextView
+                    android:id="@+id/EVENT"
+
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='"Event-hall Loft 1869"'
+                    android:textSize="18dp"/>
+                <TextView
+                    android:contentDescription="Оценки Ловтов"
+                    android:layout_gravity="end"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='5.0 400 оценок'
+                    android:textSize="15dp"/>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#E3E3E3">
+                <TextView
+                    android:id="@+id/agava"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='"Агава лофт"'
+                    android:textSize="20dp"/>
+                <TextView
+                    android:contentDescription="Оценки Ловтов"
+                    android:layout_gravity="end"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='4.8 700 оценок'
+                    android:textSize="15dp"/>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#E3E3E3">
+                <TextView
+                    android:id="@+id/wow"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='"Wow Place Loft"'
+                    android:textSize="20dp"/>
+                <TextView
+                    android:contentDescription="Оценки Ловтов"
+                    android:layout_gravity="end"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='5.0 600 оценок'
+                    android:textSize="15dp"/>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

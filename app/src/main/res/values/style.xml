@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="roundImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">9dp</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
+
+    <style name="roundImage2" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
+
+
+</resources>
