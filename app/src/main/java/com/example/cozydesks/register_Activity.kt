@@ -30,20 +30,13 @@ import kotlinx.coroutines.withContext
 class register_Activity : AppCompatActivity() {
 
 
-    // User Data
-    //private lateinit var surName: EditText
-    //private lateinit var userName: EditText
-    private lateinit var tgNick: EditText
+    private lateinit var telegram: EditText
     private lateinit var phoneNumberET: EditText
-    private lateinit var waitText: TextView
-    //private lateinit var password: EditText
-
-
-    // Buttons
-    private lateinit var nextButton: Button
-    private lateinit var authButton: TextView
-
-    // Other
+    private lateinit var waitFor: TextView
+    
+    private lateinit var nextB: Button
+    private lateinit var auth: TextView
+    
     private lateinit var progressBar: ProgressBar
 
 
@@ -63,34 +56,26 @@ class register_Activity : AppCompatActivity() {
         // Initial User Data
         //surName = findViewById(R.id.regSureName)
         //userName = findViewById(R.id.regUserName)
-        tgNick = findViewById(R.id.tgNickName)
+        telegram = findViewById(R.id.telegramName)
         phoneNumberET = findViewById(R.id.tgCheckNum)
         //password = findViewById(R.id.passwd1)
 
 
         // Initial Buttons Data
-        nextButton = findViewById(R.id.tgCheckBtn)
+        nextB = findViewById(R.id.tgCheckBtn)
         authButton = findViewById(R.id.tabAuthButton)
 
         //Initial Other
         progressBar = findViewById(R.id.progressBar)
-        waitText = findViewById(R.id.waitLabel)
+        waitFor = findViewById(R.id.waitLabel)
 
         progressBar.visibility = View.INVISIBLE
-        waitText.visibility = View.INVISIBLE
-        nextButton.isEnabled = true
+        waitFor.visibility = View.INVISIBLE
+        nextB.isEnabled = true
         //surName.hint = "Фамилия"
         //userName.hint = "Имя"
-        tgNick.hint = "Введите Никнейм Telegram"
+        telegram.hint = "Введите Никнейм Telegram"
         phoneNumberET.hint = "Введите номер"
-        //password.hint = "Придумайте пароль"
-        //correctPassword.hint = "Повторите Пароль"
-
-
-
-
-
-
 
         var sp = getSharedPreferences("CD", MODE_PRIVATE).edit()
 
@@ -102,11 +87,11 @@ class register_Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        nextButton.setOnClickListener {
+        nextB.setOnClickListener {
 
             //var username: String = userName.text.toString()
             //var surname: String = surName.text.toString()
-            var userNick = tgNick.text.trim().toString()
+            var userNick = telegram.text.trim().toString()
             var phoneNumber = phoneNumberET.text.trim().toString()
             //var psswd1 = password.text.trim().toString()
             //var pssw2: String = correctPassword.text.trim().toString()
@@ -116,8 +101,8 @@ class register_Activity : AppCompatActivity() {
 
                 phoneNumber = "+7${phoneNumber}"
                 progressBar.visibility = View.VISIBLE
-                waitText.visibility = View.VISIBLE
-                nextButton.isEnabled = false
+                waitFor.visibility = View.VISIBLE
+                nextB.isEnabled = false
                 intent.setPackage("org.telegram.messenger")
                 Python.start(AndroidPlatform(this))
 
@@ -152,27 +137,27 @@ class register_Activity : AppCompatActivity() {
                                 startActivity(Intent(this@register_Activity,EndRegister::class.java))
 
                             }else{
-                                nextButton.isEnabled = true
+                                nextB.isEnabled = true
                                 progressBar.visibility = View.INVISIBLE
-                                waitText.visibility = View.INVISIBLE
+                                waitFor.visibility = View.INVISIBLE
                                 phoneNumberET.hint = "Ошибка"
                             }
                         }else{
-                            waitText.visibility = View.INVISIBLE
-                            nextButton.isEnabled = true
+                            waitFor.visibility = View.INVISIBLE
+                            nextB.isEnabled = true
                             phoneNumberET.setText("")
                             phoneNumberET.hint = "Ошибка"
                         }
                     }
                 }catch (e:Exception){
-                    waitText.visibility = View.INVISIBLE
-                    nextButton.isEnabled = true
+                    waitFor.visibility = View.INVISIBLE
+                    nextB.isEnabled = true
                     phoneNumberET.setText("")
                     Toast.makeText(this@register_Activity,"Ошибка при открытии Telegram", Toast.LENGTH_LONG).show()
                 }
             }else{
-                waitText.visibility = View.INVISIBLE
-                nextButton.isEnabled = true
+                waitFor.visibility = View.INVISIBLE
+                nextB.isEnabled = true
                 phoneNumberET.setText("")
                 phoneNumberET.hint = "Тут ошибка ("
             }

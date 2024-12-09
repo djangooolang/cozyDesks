@@ -46,15 +46,15 @@ class Profile : Fragment() {
         val userName = sp.getString("userName", "Имя пользователя")
         val country = sp.getString("country","Название вашего города")
 
-        val userNameTitle: Button = binding.userNameProfile
+        val userNameTile: Button = binding.userNameProfile
         val changeCountry: Button = binding.locationProfile
-        userNameTitle.setText(userName)
+        userNameTile.setText(userName)
         changeCountry.setText(country)
 
-        userNameTitle.setOnClickListener {
+        userNameTile.setOnClickListener {
             showCustomDialogBox(title = "Изменить Имя", hint = "Введите новое имя",sp=sp)
             val userName = sp.getString("userName", "Ошибка")
-            userNameTitle.setText(userName)
+            userNameTile.setText(userName)
         }
 
         changeCountry.setOnClickListener {
