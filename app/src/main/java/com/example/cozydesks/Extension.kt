@@ -44,7 +44,7 @@ class Extension : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         userID = requireArguments().getString("ID").toString()
-        Toast.makeText(requireContext(),userID,Toast.LENGTH_LONG).show()
+        //Toast.makeText(requireContext(),userID,Toast.LENGTH_LONG).show()
         EventChangeListener()
 
         adapter = merrAdapter(myMerr)
