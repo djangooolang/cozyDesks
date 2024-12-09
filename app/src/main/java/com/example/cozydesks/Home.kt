@@ -11,15 +11,17 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cozydesks.databinding.FragmentHomeBinding
 import com.example.cozydesks.databinding.FragmentProfileBinding
+import java.util.Locale
 
 class Home : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var startTestButton: Button
 
 
     override fun onCreateView(
@@ -27,11 +29,12 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        binding.searchButton.setOnClickListener{
+            val intent = Intent(requireContext(),searchActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
-
-
     }
 
     override fun onDestroyView() {
@@ -39,28 +42,4 @@ class Home : Fragment() {
         _binding = null
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val resources = resources.getStringArray(R.array.countries)
-        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdown_item, resources)
-
-        binding.apply {
-            searchView.editText.setOnEditorActionListener(object :TextView.OnEditorActionListener{
-                override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
-                    val text = p0?.text.toString()
-                    searchView.hide()
-                    searchBar.setText(text)
-                    return true
-                }
-
-            })
-        }
-
-
-        binding.autoCompleteTextView.setAdapter(arrayAdapter)
-        binding.startTestButton.setOnClickListener {
-            val intent = Intent(requireContext(),test::class.java)
-            startActivity(intent)
-        }
-    }
 }

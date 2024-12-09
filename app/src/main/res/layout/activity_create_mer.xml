@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".createMer">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:background="@android:color/transparent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+
+            <EditText
+                android:id="@+id/merCreate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:height="70dp"
+                android:autoSizeMaxTextSize="30dp"
+                android:autoSizeMinTextSize="10dp"
+                android:background="@drawable/shape_rounded_text_field"
+                android:gravity="center|left"
+                android:hint="Введите Название Мероприятия"
+                android:paddingHorizontal="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/merLoftName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:height="70dp"
+                android:background="@drawable/shape_rounded_text_field"
+                android:gravity="center|left"
+                android:hint="Название Лофта"
+                android:paddingLeft="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/merLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:height="70dp"
+                android:background="@drawable/shape_rounded_text_field"
+                android:gravity="center|left"
+                android:hint="Город"
+                android:paddingLeft="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/merLoftAddres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:height="70dp"
+                android:background="@drawable/shape_rounded_text_field"
+                android:gravity="center|left"
+                android:hint="адрес лофта"
+                android:paddingLeft="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/merLoftGroupLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:height="70dp"
+                android:background="@drawable/shape_rounded_text_field"
+                android:gravity="center|left"
+                android:hint="ссылка на группу в Telegram"
+                android:paddingLeft="10dp"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/merDescripton"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginVertical="10dp"
+                android:height="70dp"
+                android:background="@drawable/shape_rounded_text_field"
+                android:gravity="left"
+                android:hint="Описание Мероприятие"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"
+        android:paddingVertical="30dp"
+        android:text="Создать Встречу"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:cardCornerRadius="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeWidth="0dp">
+
+        <Button
+            android:id="@+id/canselFromMerr"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A2A2A2"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp"
+            android:text="Отмена"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/SaveButtonToDataBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A2A2A2"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp"
+            android:text="Сохранить"
+            android:textSize="20dp" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

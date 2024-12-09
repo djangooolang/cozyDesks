@@ -9,12 +9,14 @@
     tools:context=".Extension">
 
     <Button
+        android:id="@+id/searchNewMerr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Найти Встречу"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="60dp"/>
     <Button
+        android:id="@+id/createMerrButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Создать встречу"
@@ -23,56 +25,23 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#6B6B6B"
         android:layout_marginTop="20dp">
-        <LinearLayout
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
-                <Button
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:text="Мои Игры   "
-                    android:textColor="@color/black"
-                    android:layout_marginEnd="20dp"
-                    app:cornerRadius="0dp"
-                    android:layout_gravity="start"
-                    app:icon="@drawable/baseline_edit_square_24"
-                    app:iconGravity="end"
-                    app:iconTint="@color/black" />
-                <Button
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
-                    android:text="Мои встречи   "
-                    android:layout_gravity="end"
-                    android:layout_marginStart="20dp"
-                    android:textColor="#747474"
-                    app:cornerRadius="0dp"
-                    app:icon="@drawable/baseline_edit_square_24"
-                    app:iconGravity="end"
-                    app:iconTint="#747474" />
-            </LinearLayout>
-            <ListView
-                android:layout_marginHorizontal="30dp"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:text="Мои встречи"/>
     </com.google.android.material.card.MaterialCardView>
 
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

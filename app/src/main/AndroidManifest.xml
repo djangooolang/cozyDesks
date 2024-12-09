@@ -21,7 +21,13 @@
         android:theme="@style/Theme.CozyDesks"
         tools:targetApi="31">
         <activity
-            android:name=".test"
+            android:name=".AboutMerr"
+            android:exported="false" />
+        <activity
+            android:name=".searchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".createMer"
             android:exported="false" />
         <activity
             android:name=".EndRegister"

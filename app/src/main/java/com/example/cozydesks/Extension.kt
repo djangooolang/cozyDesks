@@ -1,59 +1,112 @@
 package com.example.cozydesks
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cozydesks.databinding.FragmentExtensionBinding
+import com.example.cozydesks.databinding.FragmentHomeBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Extension.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Extension : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentExtensionBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var db:FirebaseFirestore
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: merrAdapter
+    private var userID: String? = ""
+    private var myMerr = ArrayList<merrData>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentExtensionBinding.inflate(inflater,container,false)
+        binding.createMerrButton.setOnClickListener {
+            val intent = Intent(requireContext(),createMer::class.java)
+            startActivity(intent)
+        }
+        binding.searchNewMerr.setOnClickListener {
+            val intent = Intent(requireContext(),searchActivity::class.java)
+            startActivity(intent)
+        }
+        recyclerView = binding.recyclerView
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        userID = requireArguments().getString("ID").toString()
+        Toast.makeText(requireContext(),userID,Toast.LENGTH_LONG).show()
+        EventChangeListener()
+
+        adapter = merrAdapter(myMerr)
+        recyclerView.adapter = adapter
+
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_extension, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Extension.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Extension().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+
+    private fun EventChangeListener(){
+
+        val idProfile = userID
+
+        db = FirebaseFirestore.getInstance()
+        db.collection("merr")
+            .get()
+            .addOnSuccessListener { result ->
+                for (dc in result){
+                    var title:String = dc.getString("title").toString()
+                    var subtitle:String = dc.getString("subTitle").toString()
+                    var city:String = dc.getString("city").toString()
+                    var address:String = dc.getString("address").toString()
+                    var creatorID:String = dc.getString("creatorID").toString()
+                    var linkToGroup:String = dc.getString("linkToGroup").toString()
+                    var description:String = dc.getString("description").toString()
+                    if(creatorID == userID){
+                        val test = merrData(
+                            title = title,
+                            subTitle = subtitle,
+                            city = city,
+                            address = address,
+                            creatorID = creatorID,
+                            linkToGroup = linkToGroup,
+                            description = description
+                        )
+
+                        var exists = false
+                        for (value in myMerr) {
+                            if (value == test) {
+                                exists = true
+                                break
+                            }
+                        }
+
+                        if (!exists) {
+                            myMerr.add(test)
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+
                 }
             }
+            .addOnFailureListener { exception ->
+                Toast.makeText(requireContext(), "Неполучилось подключиться, попробуйте позже!", Toast.LENGTH_LONG).show()
+            }
+
     }
+
+
 }

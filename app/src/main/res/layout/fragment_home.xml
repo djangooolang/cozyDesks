@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_marginTop="20dp"
     android:layout_height="match_parent">
@@ -13,100 +12,86 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        android:layout_marginTop="10dp"
-        app:layout_anchor="@+id/toolbar"
-        app:layout_anchorGravity="center">
+        app:layout_anchorGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="#EBE5EF"
-            app:shapeAppearanceOverlay="@style/roundImage"
-            />
+            app:shapeAppearanceOverlay="@style/roundImage" />
 
         <TextView
             android:id="@+id/textView"
-            android:paddingLeft="9dp"
-            android:autoSizeMinTextSize="9dp"
-            android:autoSizeMaxTextSize="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizeMaxTextSize="15dp"
+            android:autoSizeMinTextSize="9dp"
+            android:paddingLeft="9dp"
             android:text="Уютные\nНастолки"
-            android:textSize="25dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:layout_marginStart="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:inputType="none"
-                android:text="Москва"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:textSize="25dp" />
 
 
     </androidx.appcompat.widget.Toolbar>
 
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="250dp"
-        android:layout_height="350dp"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/img1"
-        app:shapeAppearanceOverlay="@style/roundImage2"
-
-        />
-
-    <com.google.android.material.search.SearchBar
-        android:id="@+id/search_bar"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hello"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="130dp"
-        android:layout_marginHorizontal="30dp"
-        />
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="#E6E6E6"
+        app:strokeWidth="0dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="19dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        <Button
+            android:id="@+id/searchButton"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:hint="   Поиск мероприятии"
+            android:gravity="start"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/baseline_search_24"
+            android:layout_gravity="center_horizontal"
+            app:iconGravity="start"
+            app:iconTint="@color/black" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.search.SearchView
-        android:id="@+id/search_View"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="Hint"
-        app:layout_anchor="@id/search_bar">
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
 
-    </com.google.android.material.search.SearchView>
-    <Button
-        android:id="@+id/startTestButton"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Пройти Тест"
-        android:textColor="@color/black"
-        android:layout_gravity="bottom |center_horizontal"
-        android:layout_marginBottom="70dp"
-
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Узнавай свой уровень, и подбери\n подходящую игру и найди\n единомышленников"
-        android:layout_gravity="center_horizontal | bottom"
-        android:layout_marginBottom="22dp"
-        android:textSize="12dp"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                android:text="Забудьте о бесконечной ленте соцсетей и одиноких вечерах перед экраном! Настольные игры — это живое общение, захватывающие приключения и незабываемые моменты, проведенные в компании друзей и близких. Они развивают логику, креативность и способность работать в команде, а также помогают наладить прочные связи и создать теплые воспоминания. В нашем приложении вы найдете выбор уютных настольных игр, которые предлагают участники нашего приложения. А также возможность легко организовать вечер с друзьями, имея список проверенных лофтов."
+                android:textSize="20dp"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </ScrollView>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

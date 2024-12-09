@@ -46,7 +46,7 @@
         <Button
             android:id="@+id/userNameProfile"
             style="@style/Widget.Material3.Button.IconButton.Filled"
-            android:layout_width="160dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:text="username   "
@@ -60,7 +60,7 @@
         <Button
             android:id="@+id/locationProfile"
             style="@style/Widget.Material3.Button.IconButton.Filled"
-            android:layout_width="160dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:text="Город: Москва   "

@@ -67,7 +67,9 @@ class EndRegister : AppCompatActivity() {
                     .addOnFailureListener{
                         Toast.makeText(this,"Ошибка при Регистрации, попробуйте позже", Toast.LENGTH_LONG).show()
                     }
+
                 sp.edit().putString("LoginVeriFF","FullLogin").apply()
+
                 sp.edit().putString("surname",surname).apply()
                 sp.edit().putString("userName",name).apply()
                 sp.edit().putString("phoneNumber",phoneNumber).apply()
