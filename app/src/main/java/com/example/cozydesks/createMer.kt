@@ -45,8 +45,8 @@ class createMer : AppCompatActivity() {
         }
 
         var sp = getSharedPreferences("CD", Context.MODE_PRIVATE)
-        getUserId()
-
+        id = sp.getString("ID","none").toString()
+        //Toast.makeText(this,id,Toast.LENGTH_LONG).show()
 
 
         merName = findViewById(R.id.merCreate)
@@ -96,21 +96,5 @@ class createMer : AppCompatActivity() {
 
     }
 
-    private fun getUserId(){
-        var sp = getSharedPreferences("CD",Context.MODE_PRIVATE)
 
-        var phoneNumber = sp.getString("phoneNumber",null)
-        var psswd = sp.getString("password",null)
-        db = Firebase.firestore
-        db.collection("users")
-            .get()
-            .addOnSuccessListener { result ->
-                for (dc in result){
-                    if(dc.getString("password" ) == psswd && dc.getString("phoneNumber") == phoneNumber){
-                        id = dc.id
-                    }
-                }
-            }
-
-    }
 }

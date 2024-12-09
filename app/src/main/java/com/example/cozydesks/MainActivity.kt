@@ -44,9 +44,6 @@ class MainActivity : AppCompatActivity() {
         db = Firebase.firestore
 
 
-
-
-
         /*
         *  FullLogin - полностью зарегестрирован и вход успешен!
         *  MiddleLogin - прошел проверку номера!
@@ -68,10 +65,14 @@ class MainActivity : AppCompatActivity() {
                     for (dc in result){
                         if(dc.getString("password" ) == psswd && dc.getString("phoneNumber") == phoneNumber){
                             id = dc.id
-                            sp.edit().putString("ID",id)
+                            sp.edit().putString("ID",id).apply()
+                            //Toast.makeText(this,id,Toast.LENGTH_LONG).show()
                             val bundle = Bundle()
-                            bundle.putString("ID",id)
-                            fragment2.arguments = bundle
+                            bundle.putString("userID",id)
+                            //fragment2.arguments = bundle
+                            fragment2.apply {
+                                arguments=bundle
+                            }
                         }
                     }
                 }
