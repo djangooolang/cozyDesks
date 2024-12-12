@@ -26,7 +26,7 @@
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="Автризация"
+        android:text="Авторизация"
         android:textSize="20dp"
         android:background="@drawable/shape_rounded_variants_for_title"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
