@@ -19,7 +19,7 @@
         android:id="@+id/createMerrButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Создать встречу"
+        android:text="Создать Встречу"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"/>
 
